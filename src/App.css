@@ -1,0 +1,18 @@
+body {
+  background-color: #f4f6f9;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.form-control {
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1.25rem !important;
+  }
+}
