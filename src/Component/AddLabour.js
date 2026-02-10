@@ -13,7 +13,6 @@ function Add() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  // 🔹 Load data for Edit
   useEffect(() => {
     if (id) {
       const labours = JSON.parse(localStorage.getItem("labours")) || [];
@@ -28,7 +27,6 @@ function Add() {
     }
   }, [id]);
 
-  // 🔹 Validate single field (live)
   function validateField(field, value) {
     let message = "";
 
@@ -43,7 +41,6 @@ function Add() {
     setErrors(prev => ({ ...prev, [field]: message }));
   }
 
-  // 🔹 Validate all on save
   function validateForm() {
     validateField("name", name);
     validateField("position", position);
@@ -101,18 +98,13 @@ function Add() {
       <div className="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
         <div className="card shadow-lg border-0">
 
-          {/* Header */}
           <div className="card-header bg-primary text-white text-center py-3">
             <h4 className="mb-0">
               {id ? "Edit Labour" : "Add Labour"}
             </h4>
           </div>
-
-          {/* Body */}
           <div className="card-body p-4 p-md-5">
             <form onSubmit={Save} noValidate>
-
-              {/* Name */}
               <div className="mb-3">
                 <label className="form-label fw-semibold">Name</label>
                 <input
@@ -130,8 +122,6 @@ function Add() {
                   <div className="invalid-feedback">{errors.name}</div>
                 )}
               </div>
-
-              {/* Position */}
               <div className="mb-3">
                 <label className="form-label fw-semibold">Position</label>
                 <input
@@ -149,8 +139,6 @@ function Add() {
                   <div className="invalid-feedback">{errors.position}</div>
                 )}
               </div>
-
-              {/* Salary */}
               <div className="mb-3">
                 <label className="form-label fw-semibold">Salary</label>
                 <input
@@ -169,7 +157,6 @@ function Add() {
                 )}
               </div>
 
-              {/* Place */}
               <div className="mb-4">
                 <label className="form-label fw-semibold">Place</label>
                 <input
@@ -187,8 +174,6 @@ function Add() {
                   <div className="invalid-feedback">{errors.place}</div>
                 )}
               </div>
-
-              {/* Buttons */}
               <div className="d-grid d-sm-flex gap-2">
                 <button className="btn btn-primary w-100" type="submit">
                   Save

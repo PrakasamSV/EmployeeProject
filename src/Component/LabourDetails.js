@@ -8,7 +8,6 @@ function LabourDetails() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
 
-  // 🔹 Load data from localStorage
   useEffect(() => {
     const labours = JSON.parse(localStorage.getItem("labours")) || [];
     setInput(labours);
@@ -18,7 +17,6 @@ function LabourDetails() {
     navigate(`/addlabour/${id}`);
   }
 
-  // 🔹 Open confirm dialog
   function Delete(id) {
     setDeleteId(id);
     setShowConfirm(true);
@@ -42,8 +40,6 @@ function LabourDetails() {
 
   return (
     <div className="container-fluid p-4">
-
-      {/* Header */}
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h4 className="p-3  text-black rounded">
           Labour Details
@@ -52,8 +48,6 @@ function LabourDetails() {
           Add Labour
         </button>
       </div>
-
-      {/* Table */}
       <div className="table-responsive">
         <table className="table table-bordered table-hover shadow">
           <thead className="table-dark">
@@ -99,8 +93,6 @@ function LabourDetails() {
           </tbody>
         </table>
       </div>
-
-      {/* 🔥 Delete Confirmation Modal */}
       {showConfirm && (
         <div className="modal fade show d-block" tabIndex="-1">
           <div className="modal-dialog modal-dialog-centered">
@@ -134,8 +126,6 @@ function LabourDetails() {
           </div>
         </div>
       )}
-
-      {/* Modal Backdrop */}
       {showConfirm && <div className="modal-backdrop fade show"></div>}
     </div>
   );
